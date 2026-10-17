@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1020">
+  <title>PhishGuard | URL Security Scanner</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">
+      <span class="brand-icon">P</span>
+      <span>PhishGuard<span class="brand-dot">.</span></span>
+    </a>
+    <span class="status"><span class="status-dot"></span> AI Scanner</span>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="eyebrow"><span>✦</span> INTELLIGENT URL ANALYSIS</div>
+      <h1>Think before you <span>click.</span></h1>
+      <p class="hero-text">
+        Check suspicious links using machine learning. Analyze URL
+        patterns before you visit a website.
+      </p>
+
+      <form id="scan-form" class="scan-form">
+        <label for="url-input">Website URL</label>
+        <div class="input-row">
+          <span class="input-icon">↗</span>
+          <input
+            id="url-input"
+            type="text"
+            placeholder="https://example.com/login"
+            maxlength="2048"
+            autocomplete="url"
+            spellcheck="false"
+            required
+          >
+          <button id="scan-button" type="submit">
+            <span id="button-text">Scan URL</span>
+            <span aria-hidden="true"> →</span>
+          </button>
+        </div>
+        <p class="input-help">
+          Paste a URL to analyze. The scanner does not visit the website.
+        </p>
+      </form>
+    </section>
+
+    <section id="message" class="message" role="status"
+      aria-live="polite" hidden></section>
+
+    <section id="results" class="results" hidden>
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">SCAN REPORT</p>
+          <h2>Analysis results</h2>
+        </div>
+        <span id="result-badge" class="badge"></span>
+      </div>
+
+      <div class="result-card">
+        <div id="result-symbol" class="result-symbol"></div>
+        <div class="result-content">
+          <h3 id="result-title"></h3>
+          <p id="result-description"></p>
+          <p class="scanned-url" id="scanned-url"></p>
+        </div>
+      </div>
+
+      <div class="metrics">
+        <article class="metric-card">
+          <span>Phishing score</span>
+          <strong id="phishing-score">—</strong>
+          <div class="meter"><div id="phishing-meter"></div></div>
+          <small>Model-estimated probability</small>
+        </article>
+        <article class="metric-card">
+          <span>Legitimate score</span>
+          <strong id="legitimate-score">—</strong>
+          <div class="meter"><div id="legitimate-meter"></div></div>
+          <small>Model-estimated probability</small>
+        </article>
+      </div>
+
+      <div class="features-card">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">MODEL INPUT</p>
+            <h2>Extracted URL features</h2>
+          </div>
+          <span id="feature-count" class="feature-count"></span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Feature</th><th>Value</th></tr>
+            </thead>
+            <tbody id="features-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-grid">
+      <article class="info-card">
+        <span class="info-icon">⌕</span>
+        <h3>Pattern analysis</h3>
+        <p>Evaluates URL length, symbols, subdomains and suspicious words.</p>
+      </article>
+      <article class="info-card">
+        <span class="info-icon">◇</span>
+        <h3>Machine learning</h3>
+        <p>Uses your trained Random Forest classifier to categorize URL patterns.</p>
+      </article>
+      <article class="info-card">
+        <span class="info-icon">⛨</span>
+        <h3>Safety first</h3>
+        <p>URLs are analyzed as text and are not automatically opened.</p>
+      </article>
+    </section>
+
+    <aside class="disclaimer">
+      <strong>Important security notice</strong>
+      <p>
+        This is an educational cybersecurity project, not a guarantee of
+        website safety. A legitimate result may still be malicious.
+        Never enter passwords or financial information on a suspicious site.
+      </p>
+    </aside>
+  </main>
+
+  <footer>
+    <span>PhishGuard · Machine Learning Project</span>
+    <a href="/docs" target="_blank" rel="noopener noreferrer">API documentation ↗</a>
+  </footer>
+</body>
+</html>
